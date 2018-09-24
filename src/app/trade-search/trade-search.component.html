@@ -1,0 +1,65 @@
+<mat-card>
+  <form  (submit)="onSearch(tradeForm)" #tradeForm="ngForm" >
+  
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="Trade From Date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <!-- <input matInput [matDatepicker]="picker" placeholder="Trade To Date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #pickerTo></mat-datepicker> -->
+    </mat-form-field>
+   
+    <!-- <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="Trade To Date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #pickerTo></mat-datepicker>
+    </mat-form-field> -->
+  <mat-form-field>
+    <mat-select placeholder="Commodity Select" name="commSelect" ngModel>
+      <mat-option *ngFor="let comm of commodities" [value]="comm.value">
+        {{comm.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+   
+  <label for="side">Side</label>
+  <span class="spacer"></span>
+  
+    <mat-checkbox color="primary" name="buy" ngModel required>Buy</mat-checkbox>
+    <span class="spacer"></span>
+    <mat-checkbox color="primary" name="sell" ngModel required>Sell</mat-checkbox>
+  <!-- <label for="side">Side</label>
+  <mat-radio-group>
+    <mat-radio-button value="buy">Buy</mat-radio-button>
+    <mat-radio-button value="sell">Sell</mat-radio-button>
+  </mat-radio-group> -->
+
+  <mat-form-field>
+    <mat-select placeholder="Counterparty Select" name="counterpartySelect" ngModel>
+      <mat-option *ngFor="let counter of counterParties" [value]="counter.value">
+        {{counter.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="Location Select" name="locationSelect" ngModel>
+      <mat-option *ngFor="let loc of locations" [value]="loc.value">
+        {{loc.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  
+  
+  
+    <button type="text" mat-raised-button color="primary" type="submit">Search</button>
+    <span class="spacer"></span>
+
+    <button type="text" mat-raised-button color="primary" >Clear</button>
+  
+  
+  
+    </form>
+  </mat-card>
+  
