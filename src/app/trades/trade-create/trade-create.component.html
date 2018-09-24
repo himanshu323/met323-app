@@ -1,0 +1,51 @@
+<mat-card>
+<form  (submit)="onTrade(tradeForm)" #tradeForm="ngForm" >
+
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="Trade Date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+<mat-form-field>
+  <mat-select placeholder="Commodity Select" name="commSelect" ngModel>
+    <mat-option *ngFor="let comm of commodities" [value]="comm.value">
+      {{comm.viewValue}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+ 
+<!-- <label for="side">Side</label>
+
+  <mat-checkbox color="primary" name="buy" ngModel required>Buy</mat-checkbox>
+  <mat-checkbox color="primary" name="sell" ngModel required>Sell</mat-checkbox> -->
+<label for="side">Side</label>
+<mat-radio-group>
+  <mat-radio-button value="buy">Buy</mat-radio-button>
+  <mat-radio-button value="sell">Sell</mat-radio-button>
+</mat-radio-group>
+
+<mat-form-field>
+  <input type="text" matInput placeholder="CounterParty" name="counterparty" ngModel>
+</mat-form-field>
+
+<mat-form-field>
+  <input type="number" matInput placeholder="Price" name="price" ngModel>
+  
+</mat-form-field>
+<label>USD</label>
+
+<mat-form-field>
+  <input type="number" matInput placeholder="Quantity" name="quantity" ngModel>
+</mat-form-field>
+
+<mat-form-field>
+  <input type="text" matInput placeholder="Location" name="location" ngModel>
+</mat-form-field>
+
+
+  <button type="text" mat-raised-button color="primary" type="submit">Save</button>
+
+
+
+  </form>
+</mat-card>
