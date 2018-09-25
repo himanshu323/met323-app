@@ -1,0 +1,35 @@
+<mat-toolbar color="primary">
+
+
+    <button (click)="onToggle()" mat-icon-button >
+      <mat-icon>menu</mat-icon>
+    </button>
+    <p>Trading App</p>
+
+    <ul fxFlex fxLayout fxLayoutAlign="end center" fxLayoutGap="15px" fxHide.xs>
+
+
+      <li>
+
+        <a mat-button routerLink="/trade" routerLinkActive="selected">Trades</a>
+      </li>
+
+
+      <li>
+
+        <a mat-button>Transfers</a>
+      </li>
+
+
+      <li>
+
+        <a mat-button>Transports</a>
+      </li>
+    </ul>
+
+
+
+
+  </mat-toolbar>
+
+

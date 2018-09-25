@@ -1,41 +1,15 @@
 <mat-sidenav-container class="example-container">
-  <mat-sidenav #sidenav mode="side">Sidenav content</mat-sidenav>
+  <mat-sidenav #sidenav  role="navigation">
+
+    
+             
+<app-sidenav-list (sideClose)="sidenav.close()"></app-sidenav-list>
+
+</mat-sidenav>
   <mat-sidenav-content>
 
-    <mat-toolbar color="primary">
-
-
-      <button (click)="sidenav.toggle()" mat-icon-button>
-        <mat-icon>menu</mat-icon>
-      </button>
-      <p>Trading App</p>
-
-      <ul fxFlex fxLayout fxLayoutAlign="end center" fxLayoutGap="15px">
-
-
-        <li>
-
-          <a mat-button routerLink="/trade" routerLinkActive="selected">Trades</a>
-        </li>
-
-
-        <li>
-
-          <a mat-button>Transfers</a>
-        </li>
-
-
-        <li>
-
-          <a mat-button>Transports</a>
-        </li>
-      </ul>
-
-
-
-
-    </mat-toolbar>
-
+    
+    <app-header (sideToggle)="sidenav.toggle()"></app-header>
     <main>
     
       <router-outlet></router-outlet>

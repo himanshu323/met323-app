@@ -1,22 +1,7 @@
-ul{
-    list-style: none;
-    
-   text-decoration: none
-}
 
-mat-sidenav{
-    width:200px
-}
-
-a:hover{
-    color:pink
-}
-
-.selected{
-    color:lightpink
-}
 
 /* app-trade-create{
+
     width:40%
     } */
 
