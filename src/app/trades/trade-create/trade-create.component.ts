@@ -27,6 +27,10 @@ export class TradeCreateComponent implements OnInit {
 
   onTrade(form:NgForm){
 
+    if(form.invalid){
+      return
+    }
+
 
     console.log(form);
   }
