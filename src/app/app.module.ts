@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import {MatToolbarModule, MatInputModule,MatFormFieldModule, MatCardModule, MatSelectModule, MatButtonModule, MatDatepickerModule, MatNativeDateModule, MatCheckboxModule, MatRadioModule, MatTableModule, MatTableDataSource, MatSidenavModule, MatIconModule, MatListModule} from "@angular/material"
 
 import { TradeCreateComponent } from 'src/app/trades/trade-create/trade-create.component';
 import { FormsModule } from '@angular/forms';
@@ -17,6 +16,7 @@ import { TradeComponent } from 'src/app/trades/trade.component';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
 import { HeaderComponent } from './navigation/header/header.component';
+import { AppMaterialModule } from 'src/app/app-material.module';
 
 @NgModule({
   declarations: [
@@ -26,25 +26,10 @@ import { HeaderComponent } from './navigation/header/header.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MatToolbarModule,
-    FormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatCardModule,
-    MatSelectModule,
-    MatButtonModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatCheckboxModule,
-    MatRadioModule,
-    MatTableModule,
+    AppMaterialModule,
     FlexLayoutModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,
-    
-
-    AppRoutingModule
+    FormsModule,
+   AppRoutingModule
     
     
 
