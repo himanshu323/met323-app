@@ -55,6 +55,9 @@ export class TradeCreateComponent implements OnInit {
 
     console.log(form);
 
+
+    console.log(trade);
+
     this.tradeService.addTrade(trade);
   }
 

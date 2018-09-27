@@ -3,6 +3,7 @@ import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 import { ViewChild } from '@angular/core';
 import { TradeService } from '../../trade.service';
 import { Trade } from '../../trade.model';
+import { TradeSearch } from '../../trade-search.model';
 
 const ELEMENT_DATA = [
   { tradeDate: "22/03/17", commodity: 'AL',side:'Buy',qty:'23',price:'1234' ,counterparty: "ABC", location: 'London' },
@@ -24,9 +25,9 @@ export class TradeListComponent implements OnInit {
 
   locationFilter;
 
-  displayedColumns: string[] = ['tradeDate', 'commodity', 'side', 'qty','price','counterparty','location'];
+  displayedColumns: string[] = ['tradeDate', 'commodity', 'side', 'qty','price','counterparty','location','actions'];
 
-  dataSource ;
+  dataSource;
 
   pageSizeOptions=[1,5, 10, 20];
   @ViewChild(MatSort) sort:MatSort;
@@ -34,6 +35,8 @@ export class TradeListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator:MatPaginator;
 
   constructor(private traderService:TradeService) { 
+
+
 
 
   }
@@ -46,11 +49,35 @@ export class TradeListComponent implements OnInit {
 
     this.traderService.getTradeListener().subscribe(data=>{
 
+      console.log("Trade")
+      console.log(data.trades);
       this.trades=data.trades;
       this.dataSource=new MatTableDataSource(this.trades);
+      this.dataSource.filterPredicate=(data,filterValue:TradeSearch)=>{
+
+        console.log(data);
+        if(filterValue.side.buy && filterValue.side.sell){
+          return data.side.toLowerCase()==="buy" || data.side.toLowerCase()==="sell";
+        }
+        if(filterValue.side.buy){
+          return data.side.toLowerCase()==="buy";
+        }
+        else if(filterValue.side.sell){
+        return data.side.toLowerCase()==="sell";
+      }
+     
+        return ;
+    
+    }
 
       this.dataSource.sort=this.sort;
       this.dataSource.paginator=this.paginator;
+
+      this.traderService.getSearchTradeListener().subscribe(tradeSearch=>{
+        console.log("Helloooooooooo")
+          this.dataSource.filter=tradeSearch;
+
+      })
     })
 
 
@@ -62,12 +89,13 @@ export class TradeListComponent implements OnInit {
     //   });
   }
 
-  onFilter(filterValue:string){
+  // onFilter(filterValue:string){
 
-    this.commodityFilter=filterValue;
-    this.dataSource.filter = filterValue;
+  //   //this.commodityFilter=filterValue;
 
-  }
+  //   this.dataSource.filter=filterValue;
+
+  // }
 
 
 

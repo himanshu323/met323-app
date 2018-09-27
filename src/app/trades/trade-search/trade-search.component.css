@@ -1,9 +1,18 @@
 mat-form-field{
     
-    margin:5px 20px;
+   width:190px;
 }
-
+/* 
 .spacer{
 
     margin: 10px 10px;
+} */
+
+button{
+    height: 40px;
+}
+
+.sideCheck{
+
+    
 }

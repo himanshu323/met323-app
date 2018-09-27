@@ -1,34 +1,43 @@
 <mat-card>
-  <form  (submit)="onSearch(tradeForm)" #tradeForm="ngForm" >
+  <form  (submit)="onSearch(tradeForm)" #tradeForm="ngForm" fxLayout fxLayout="center" fxLayoutGap="10px">
   
     <mat-form-field>
-      <input matInput [matDatepicker]="picker" placeholder="Trade From Date">
+      <input matInput [matDatepicker]="picker" placeholder="Trade From Date" name="fromDate" ngModel required>
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
       <!-- <input matInput [matDatepicker]="picker" placeholder="Trade To Date">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #pickerTo></mat-datepicker> -->
     </mat-form-field>
-   
-    <!-- <mat-form-field>
-      <input matInput [matDatepicker]="picker" placeholder="Trade To Date">
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+
+    <mat-form-field>
+      <input matInput [matDatepicker]="pickerTo" placeholder="Trade To Date" name="toDate" ngModel required>
+      <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
       <mat-datepicker #pickerTo></mat-datepicker>
-    </mat-form-field> -->
+    </mat-form-field>
+   
+   
   <mat-form-field>
-    <mat-select placeholder="Commodity Select" name="commSelect" ngModel>
+    <mat-select placeholder="Commodity Select" name="commodity" ngModel required>
       <mat-option *ngFor="let comm of commodities" [value]="comm.value">
         {{comm.viewValue}}
       </mat-option>
     </mat-select>
   </mat-form-field>
-   
-  <label for="side">Side</label>
-  <span class="spacer"></span>
+
+ 
+   <section class="sideCheck" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" fxFlex="13">
   
-    <mat-checkbox color="primary" name="buy" ngModel required>Buy</mat-checkbox>
-    <span class="spacer"></span>
-    <mat-checkbox color="primary" name="sell" ngModel required>Sell</mat-checkbox>
+    <label for="side">Side</label>
+  
+  <section fxLayout fxLayoutAlign="center center" fxLayoutGap="13px">
+    <mat-checkbox color="primary" name="buy" ngModel >Buy</mat-checkbox>
+   
+    <mat-checkbox color="primary" name="sell" ngModel >Sell</mat-checkbox>
+
+  </section>
+
+  </section>
   <!-- <label for="side">Side</label>
   <mat-radio-group>
     <mat-radio-button value="buy">Buy</mat-radio-button>
@@ -36,7 +45,7 @@
   </mat-radio-group> -->
 
   <mat-form-field>
-    <mat-select placeholder="Counterparty Select" name="counterpartySelect" ngModel>
+    <mat-select placeholder="Counterparty Select" name="counterparty" ngModel required>
       <mat-option *ngFor="let counter of counterParties" [value]="counter.value">
         {{counter.viewValue}}
       </mat-option>
@@ -44,7 +53,7 @@
   </mat-form-field>
 
   <mat-form-field>
-    <mat-select placeholder="Location Select" name="locationSelect" ngModel>
+    <mat-select placeholder="Location Select" name="location" ngModel required>
       <mat-option *ngFor="let loc of locations" [value]="loc.value">
         {{loc.viewValue}}
       </mat-option>
@@ -52,10 +61,10 @@
   </mat-form-field>
   
   
-  
-    <button type="text" mat-raised-button color="primary" type="submit">Search</button>
-    <span class="spacer"></span>
 
+    <button type="text" mat-raised-button color="primary" type="submit">Search</button>
+    <!-- <span class="spacer"></span> -->
+  
     <button type="text" mat-raised-button color="primary" >Clear</button>
   
   

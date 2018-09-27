@@ -7,6 +7,7 @@ let trade=mongoose.Schema({
     commodity:{type:String,required:true},
     side: { type: String, required: true },
      quantity:{type:Number,required:true},
+     price:{type:Number,required:true},
 
     counterparty: { type: String, required: true },
     location: { type: String, required: true },
