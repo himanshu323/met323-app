@@ -17,6 +17,7 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
 import { HeaderComponent } from './navigation/header/header.component';
 import { AppMaterialModule } from 'src/app/app-material.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AppMaterialModule } from 'src/app/app-material.module';
     AppMaterialModule,
     FlexLayoutModule,
     FormsModule,
-   AppRoutingModule
+   AppRoutingModule,
+   HttpClientModule
     
     
 

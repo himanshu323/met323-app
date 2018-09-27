@@ -5,31 +5,34 @@ const router=express.Router();
 
 router.get("",(req,resp)=>{
 
-    let pageSize=+req.query.pageSize;
+    // let pageSize=+req.query.pageSize;
 
-    let currentPage=req.query.currentPage;
+    // let currentPage=req.query.currentPage;
     tradesQuery=Trade.find();
 
-    if(pageSize && currentPage){
+    // if(pageSize && currentPage){
 
-        tradesQuery.skip(pageSize*(currentPage-1)).limit(pageSize);
-    }
+    //     tradesQuery.skip(pageSize*(currentPage-1)).limit(pageSize);
+    // }
 
 
     let fetchedTrades;
     tradesQuery.then(trades=>{
 
+        console.log(trades);
         fetchedTrades=trades;
-        return trades.count();
+        return trades.length;
     }).then(count=>{
 
         resp.status(200).send({
             message:"Trade fetched successfully",
-            trades:fetchedTrades,
-            maxPages:count
+            trades:fetchedTrades
+            //,
+           // maxPages:count
         })
     }).catch(error=>{
 
+        console.log(error);
         resp.status(500).send({
             message:"Trades fetch failed"
         })
@@ -45,14 +48,20 @@ router.post("",(req,resp)=>{
         side:req.body.side,
         quantity:req.body.quantity,
         price:req.body.price,
-        counterparty=req.body.counterparty,
-        location=req.body.location
+        counterparty:req.body.counterparty,
+        location:req.body.location
 
     })
+
+    console.log("Inside");
+
+    console.log(trade);
 
     trade.save().then(data=>{
         resp.status(201).send({message:"Trade added successfully"})
     }).catch(error=>{
+
+        console.log(error);
         resp.status(500).send({
             message:"Trade Add Failed"
         })

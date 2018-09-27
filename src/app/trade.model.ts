@@ -1,13 +1,12 @@
-export interface TradeModel{
+export interface Trade{
 
 
     quantity:number;
 
-    tradeFromDate:Date;
+    tradeDate:Date;
 
-    tradeToDate:Date,
-
-    commidity:string,
+  
+    commodity:string,
 
     price:number;
 

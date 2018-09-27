@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms/src/directives/ng_form';
+import { Trade } from '../../trade.model';
+import { TradeService } from '../../trade.service';
 
 @Component({
   selector: 'app-trade-create',
@@ -22,7 +24,7 @@ export class TradeCreateComponent implements OnInit {
     { value: 'sell', viewValue: 'Sell' }
   ];
 
-  constructor() { }
+  constructor(private tradeService:TradeService) { }
 
 
   onTrade(form:NgForm){
@@ -31,8 +33,29 @@ export class TradeCreateComponent implements OnInit {
       return
     }
 
+    let trade:Trade={
+
+      quantity:form.value.quantity,
+
+      tradeDate:form.value.tradeDate,
+  
+      
+  
+      commodity:form.value.commodity,
+  
+      price:form.value.price,
+  
+      counterparty:form.value.counterparty,
+  
+      location:form.value.location,
+  
+      side:form.value.side
+  
+    }
 
     console.log(form);
+
+    this.tradeService.addTrade(trade);
   }
 
 }

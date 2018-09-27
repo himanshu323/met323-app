@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 import { ViewChild } from '@angular/core';
+import { TradeService } from '../../trade.service';
+import { Trade } from '../../trade.model';
 
 const ELEMENT_DATA = [
   { tradeDate: "22/03/17", commodity: 'AL',side:'Buy',qty:'23',price:'1234' ,counterparty: "ABC", location: 'London' },
@@ -16,23 +18,41 @@ const ELEMENT_DATA = [
 })
 export class TradeListComponent implements OnInit {
 
+  trades:Trade[];
+
   commodityFilter;
 
   locationFilter;
 
   displayedColumns: string[] = ['tradeDate', 'commodity', 'side', 'qty','price','counterparty','location'];
 
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
+  dataSource ;
+
+  pageSizeOptions=[1,5, 10, 20];
   @ViewChild(MatSort) sort:MatSort;
 
   @ViewChild(MatPaginator) paginator:MatPaginator;
 
-  constructor() { }
+  constructor(private traderService:TradeService) { 
+
+
+  }
 
   ngOnInit() {
 
-    this.dataSource.sort=this.sort;
-    this.dataSource.paginator=this.paginator;
+    
+
+    this.traderService.getAllTrades();
+
+    this.traderService.getTradeListener().subscribe(data=>{
+
+      this.trades=data.trades;
+      this.dataSource=new MatTableDataSource(this.trades);
+
+      this.dataSource.sort=this.sort;
+      this.dataSource.paginator=this.paginator;
+    })
+
 
     // combineLatest(this.commodityFilter, this.locationFilter)
     //   .map(([name, color]) => ({ name, color }))

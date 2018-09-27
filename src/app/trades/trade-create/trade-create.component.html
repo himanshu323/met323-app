@@ -7,7 +7,7 @@
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
 <mat-form-field>
-  <mat-select placeholder="Commodity Select" name="commSelect" ngModel required>
+  <mat-select placeholder="Commodity Select" name="commodity" ngModel required>
     <mat-option *ngFor="let comm of commodities" [value]="comm.value">
       {{comm.viewValue}}
     </mat-option>
