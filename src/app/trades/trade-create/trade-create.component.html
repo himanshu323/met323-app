@@ -2,12 +2,12 @@
 <form  (submit)="onTrade(tradeForm)" #tradeForm="ngForm" fxLayout="column" fxLayoutAlign="center end"  fxLayoutGap="15px">
 
   <mat-form-field>
-    <input ngModel name="tradeDate" required matInput [matDatepicker]="picker" placeholder="Trade Date" >
+    <input [ngModel]="trade.tradeDate" name="tradeDate" required matInput [matDatepicker]="picker" placeholder="Trade Date" >
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
 <mat-form-field>
-  <mat-select placeholder="Commodity Select" name="commodity" ngModel required>
+  <mat-select placeholder="Commodity Select" name="commodity" [ngModel]="trade.commodity" required>
     <mat-option *ngFor="let comm of commodities" [value]="comm.value">
       {{comm.viewValue}}
     </mat-option>
@@ -20,7 +20,7 @@
   <mat-checkbox color="primary" name="sell" ngModel required>Sell</mat-checkbox> -->
 
 
-<mat-radio-group required name="side" ngModel>
+<mat-radio-group required name="side" [ngModel]="trade.side">
   <label for="side">Side</label>
   <span class="spacer"></span>
   <mat-radio-button value="buy">Buy</mat-radio-button>
@@ -29,25 +29,35 @@
 </mat-radio-group>
 
 <mat-form-field>
-  <input type="text" matInput placeholder="CounterParty" name="counterparty" ngModel required>
+  <mat-select placeholder="Counterparty Select" name="counterparty" [ngModel]="trade.counterparty" required>
+    <mat-option *ngFor="let counterparty of counterparties" [value]="counterparty.value">
+      {{counterparty.viewValue}}
+    </mat-option>
+  </mat-select>
 </mat-form-field>
+
 <section fxLayout="row" fxLayoutAlign="center center">
 <mat-form-field id="price" hintLabel="Price should be a number">
-  <input type="number" matInput placeholder="Price" name="price" ngModel #price="ngModel" required>
+  <input type="number" matInput placeholder="Price" name="price" [ngModel]="trade.price" #price="ngModel" required>
 <mat-error>Price must not be empty</mat-error>
 </mat-form-field>
 <label>USD</label>
 </section>
 
 <mat-form-field>
-  <input type="number" matInput placeholder="Quantity" name="quantity" ngModel required>
+  <input type="number" matInput placeholder="Quantity" name="quantity" [ngModel]="trade.quantity" required>
+</mat-form-field>
+<mat-form-field>
+  <mat-select placeholder="Location Select" name="location" [ngModel]="trade.location" required>
+    <mat-option *ngFor="let loc of locations" [value]="loc.value">
+      {{loc.viewValue}}
+    </mat-option>
+  </mat-select>
 </mat-form-field>
 
-<mat-form-field>
-  <input type="text" matInput placeholder="Location" name="location" ngModel #location="ngModel" required>
-  <mat-hint align="end">{{location.value?.length}} / 20</mat-hint>
+  <!-- <mat-hint align="end">{{location.value?.length}} / 20</mat-hint> -->
   
-</mat-form-field>
+
 <section fxLayout="row" fxLayoutAlign="center center">
 <button type="text" mat-raised-button color="warn" >Cancel</button> 
 <span class="spacer"></span>

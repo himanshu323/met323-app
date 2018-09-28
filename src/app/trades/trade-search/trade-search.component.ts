@@ -11,7 +11,7 @@ import { TradeService } from '../../trade.service';
 })
 export class TradeSearchComponent implements OnInit {
 
-  
+  clearFlag:boolean;
 
   commodities = [
     { value: 'al', viewValue: 'Aluminium' },
@@ -40,11 +40,23 @@ export class TradeSearchComponent implements OnInit {
   }
 
 
-  onSearch(form:NgForm){
-    console.log("KKKKKKKKK");
-    if(form.invalid){
+  onSearch(form:NgForm,clearFlag){
+
+    if (clearFlag) {
+
+      console.log("inside")
+      form.onReset();
+       clearFlag=false;
+      return this.tradeService.getAllTrades();
+    }
+
+    if (form.invalid) {
       return;
     }
+
+    
+
+    
     
     
     console.log(form);
@@ -61,5 +73,18 @@ export class TradeSearchComponent implements OnInit {
     }
 
     this.tradeService.searchTrade(tradeSearch);
+
+   
+
+    form.onReset();
+  }
+
+  onClear(form:NgForm){
+
+
+    //form=null;
+
+    form.reset();
+
   }
 }

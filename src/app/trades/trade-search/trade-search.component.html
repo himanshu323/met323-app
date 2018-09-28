@@ -1,5 +1,5 @@
 <mat-card>
-  <form  (submit)="onSearch(tradeForm)" #tradeForm="ngForm" fxLayout fxLayout="center" fxLayoutGap="10px">
+  <form  (submit)="onSearch(tradeForm,clearFlag)" #tradeForm="ngForm" fxLayout fxLayout="center" fxLayoutGap="10px">
   
     <mat-form-field>
       <input matInput [matDatepicker]="picker" placeholder="Trade From Date" name="fromDate" ngModel required>
@@ -46,8 +46,8 @@
 
   <mat-form-field>
     <mat-select placeholder="Counterparty Select" name="counterparty" ngModel required>
-      <mat-option *ngFor="let counter of counterParties" [value]="counter.value">
-        {{counter.viewValue}}
+      <mat-option *ngFor="let counterparty of counterParties" [value]="counterparty.value">
+        {{counterparty.viewValue}}
       </mat-option>
     </mat-select>
   </mat-form-field>
@@ -62,11 +62,11 @@
   
   
 
-    <button type="text" mat-raised-button color="primary" type="submit">Search</button>
+    <button  mat-raised-button color="primary" type="submit">Search</button>
     <!-- <span class="spacer"></span> -->
   
-    <button type="text" mat-raised-button color="primary" >Clear</button>
-  
+    <button type="  " mat-raised-button color="primary"  (click)="clearFlag=true" >Clear</button>
+    
   
   
     </form>

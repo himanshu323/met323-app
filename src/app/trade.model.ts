@@ -14,7 +14,9 @@ export interface Trade{
 
     location:string,
 
-    side:string
+    side:string,
+
+    id:string
 
 
 
