@@ -40,13 +40,13 @@ export class TradeSearchComponent implements OnInit {
   }
 
 
-  onSearch(form:NgForm,clearFlag){
+  onSearch(form:NgForm){
 
-    if (clearFlag) {
+    if (this.clearFlag) {
 
       console.log("inside")
       form.onReset();
-       clearFlag=false;
+       this.clearFlag=false;
       return this.tradeService.getAllTrades();
     }
 
@@ -79,12 +79,5 @@ export class TradeSearchComponent implements OnInit {
     form.onReset();
   }
 
-  onClear(form:NgForm){
 
-
-    //form=null;
-
-    form.reset();
-
-  }
 }

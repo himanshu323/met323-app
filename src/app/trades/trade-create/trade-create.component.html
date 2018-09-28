@@ -1,4 +1,37 @@
 <mat-card >
+    <mat-card-title *ngIf="tradeCreateButton" >
+
+        <section  fxLayout fxLayoutAlign="end center" >
+            <button mat-raised-button color="primary" (click)="onTradeCreate()" >
+        
+              <span id="createTradeLabel">Create Trade</span>
+                  <mat-icon id="addTradeIcon">
+                  
+                    add_circle
+                  </mat-icon>
+                  
+                    </button>
+                  </section>
+    </mat-card-title>
+
+    <mat-card-subtitle *ngIf="tradeEditFlag">
+
+        <!-- <mat-form-field>
+            <input type="number" matInput  [(ngModel)]="trade.tradeId" >
+          </mat-form-field> -->
+
+      <section fxLayout fxLayoutAlign="center center" id="tradeIdLabel">
+          <mat-chip-list >
+
+            <mat-chip  id="tradeIdValue" color="primary" name="tradeId" fxFlex="300px" fxFlexFill ><strong>Trade Id : {{trade.tradeId}}</strong></mat-chip>
+
+
+          </mat-chip-list>
+
+        </section>
+    </mat-card-subtitle>
+
+    <mat-card-content *ngIf="tradeCreateFlag || tradeEditFlag">
 <form  (submit)="onTrade(tradeForm)" #tradeForm="ngForm" fxLayout="column" fxLayoutAlign="center end"  fxLayoutGap="15px">
 
   <mat-form-field>
@@ -58,12 +91,14 @@
   <!-- <mat-hint align="end">{{location.value?.length}} / 20</mat-hint> -->
   
 
+
 <section fxLayout="row" fxLayoutAlign="center center">
-<button type="text" mat-raised-button color="warn" >Cancel</button> 
+<button type="text" mat-raised-button color="warn"   (click)="onTradeCancel()">Cancel</button> 
 <span class="spacer"></span>
   <button type="text" mat-raised-button color="primary" type="submit" [disabled]="tradeForm.invalid">Save</button>
 </section>
 
 
   </form>
+</mat-card-content>
 </mat-card>

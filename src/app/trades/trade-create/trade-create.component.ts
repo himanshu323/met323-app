@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms/src/directives/ng_form';
 import { Trade } from '../../trade.model';
 import { TradeService } from '../../trade.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-trade-create',
@@ -10,6 +10,12 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./trade-create.component.css']
 })
 export class TradeCreateComponent implements OnInit {
+
+  tradeCreateFlag:boolean;
+
+  tradeCreateButton:boolean=true;
+
+  tradeEditFlag:boolean;
 
   mode="create";
   tradeId;
@@ -31,7 +37,9 @@ export class TradeCreateComponent implements OnInit {
 
     side: null,
 
-    id: null
+    id: null,
+
+    tradeId:null
 
 
   };
@@ -46,6 +54,8 @@ export class TradeCreateComponent implements OnInit {
           console.log("test1Inside");
           this.mode="edit";
 
+          this.tradeEditFlag=true;
+          this.tradeCreateButton=false;
          this.tradeId= params.get("id")
 
           console.log(this.tradeId);
@@ -72,7 +82,9 @@ export class TradeCreateComponent implements OnInit {
 
                 side: trade.side,
 
-                id: trade._id
+                id: trade._id,
+
+                tradeId:trade.tradeId
 
 
               };
@@ -110,8 +122,28 @@ export class TradeCreateComponent implements OnInit {
     { value: 'India', viewValue: 'India' }
   ];
 
-  constructor(private tradeService:TradeService,private route:ActivatedRoute) { }
+  constructor(private tradeService:TradeService,private route:ActivatedRoute,private router:Router) { }
 
+
+  onTradeCreate(){
+
+
+    this.tradeCreateFlag=true;
+
+    this.router.navigate(['/trades']);
+  }
+
+  onTradeCancel(){
+
+    this.tradeCreateFlag=false;
+
+    this.tradeCreateButton=true;
+
+    this.tradeEditFlag=false;
+
+    this.router.navigate(['/trades']);
+
+  }
 
   onTrade(form:NgForm){
 
@@ -138,7 +170,9 @@ export class TradeCreateComponent implements OnInit {
   
       location:form.value.location,
   
-      side:form.value.side
+      side:form.value.side,
+
+      tradeId:null
   
     }
 
@@ -151,6 +185,8 @@ export class TradeCreateComponent implements OnInit {
   }
 
   else if(this.mode=="edit"){
+
+    
 
     let trade={
       quantity: form.value.quantity,
@@ -167,7 +203,9 @@ export class TradeCreateComponent implements OnInit {
 
       location: form.value.location,
 
-      side: form.value.side
+      side: form.value.side,
+
+      tradeId:form.value.tradeId
 
 
     }
@@ -176,5 +214,7 @@ export class TradeCreateComponent implements OnInit {
 
 
   }
+
+  form.onReset();
   }
 }

@@ -16,7 +16,9 @@ export interface Trade{
 
     side:string,
 
-    id:string
+    id:string,
+
+    tradeId:number
 
 
 

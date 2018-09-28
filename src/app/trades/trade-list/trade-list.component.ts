@@ -4,6 +4,7 @@ import { ViewChild } from '@angular/core';
 import { TradeService } from '../../trade.service';
 import { Trade } from '../../trade.model';
 import { TradeSearch } from '../../trade-search.model';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -29,7 +30,7 @@ export class TradeListComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator:MatPaginator;
 
-  constructor(private traderService:TradeService) { 
+  constructor(private traderService:TradeService,private router:Router) { 
 
 
 
@@ -76,7 +77,9 @@ export class TradeListComponent implements OnInit {
 
       console.log(resp);
 
+      this.router.navigate(["/trades"]);
 
+      
       this.traderService.getAllTrades();
 
     })

@@ -34,6 +34,10 @@ export class TradeService{
         this.http.post("http://localhost:3000/api/trades",trade).subscribe(response=>{
 
         console.log(response);
+
+        this.router.navigate(["/trades"]);
+
+        this.getAllTrades();
         })
 
         
@@ -79,7 +83,9 @@ export class TradeService{
 
                         location: trade.location,
 
-                        side: trade.side
+                        side: trade.side,
+
+                        tradeId:trade.tradeId
 
                     }
 

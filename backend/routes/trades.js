@@ -1,6 +1,8 @@
 const express = require("express")
 
 const Trade=require("../models/trade")
+
+const _=require("lodash");
 const router=express.Router();
 
 router.get("",(req,resp)=>{
@@ -76,7 +78,8 @@ router.put("/:id",(req,resp)=>{
         quantity: req.body.quantity,
         price: req.body.price,
         counterparty: req.body.counterparty,
-        location: req.body.location
+        location: req.body.location,
+        tradeId:req.body.tradeId
 
     })
 
@@ -128,6 +131,7 @@ router.delete("/:id",(req,resp)=>{
 
 router.post("",(req,resp)=>{
 
+    let tradeId=_.random(1000000,9999999);
     let trade=new Trade({
         tradeDate:req.body.tradeDate,
         commodity:req.body.commodity,
@@ -135,7 +139,8 @@ router.post("",(req,resp)=>{
         quantity:req.body.quantity,
         price:req.body.price,
         counterparty:req.body.counterparty,
-        location:req.body.location
+        location:req.body.location,
+        tradeId
 
     })
 

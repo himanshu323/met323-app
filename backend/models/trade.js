@@ -8,6 +8,7 @@ let trade=mongoose.Schema({
     side: { type: String, required: true },
      quantity:{type:Number,required:true},
      price:{type:Number,required:true},
+     tradeId:{type:Number,required:true},
 
     counterparty: { type: String, required: true },
     location: { type: String, required: true },
