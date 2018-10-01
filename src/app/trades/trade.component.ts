@@ -14,7 +14,7 @@ export class TradeComponent implements OnInit{
     
         
     
-constructor(private socketService:SocketService,private tradeService:TradeService,private router:Router){
+constructor(private socketService:SocketService){
 }
 ngOnInit(): void {
 

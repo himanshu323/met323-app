@@ -51,6 +51,7 @@ export class TradeSearchComponent implements OnInit {
     }
 
     if (form.invalid) {
+      console.log("Invalid");
       return;
     }
 
