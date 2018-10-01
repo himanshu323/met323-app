@@ -41,3 +41,10 @@ mat-card-title{
     
     font-size:large;
 }
+#tradeCreateCard{
+
+    border-right: 2px ridge rgb(212, 204, 204);
+    border-top: 2px ridge rgb(212, 204, 204);
+    border-bottom: 2px ridge rgb(212, 204, 204);
+
+}

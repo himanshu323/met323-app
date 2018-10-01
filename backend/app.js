@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser")
 const tradeRoutes = require("./routes/trades")
+const userRoutes=require("./routes/user");
 const mongoose = require("mongoose");
 
 
@@ -30,6 +31,8 @@ app.use((req, resp, next) => {
 })
 
 app.use("/api/trades", tradeRoutes)
+
+app.use("/api/user",userRoutes)
 
 
 

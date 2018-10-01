@@ -1,6 +1,9 @@
 const http=require("http");
 const app=require("./app");
 const debug=require("debug")("node-angular");
+const socketIO=require("socket.io");
+
+let socketInstance;
 
 // let server=http.createServer((req,resp)=>{
 //     resp.end("This is ITTT")
@@ -52,6 +55,26 @@ const normalizePort = val => {
   app.set("port", port);
 
 let server=http.createServer(app)
+
+// let io= socketIO(server);
+
+// io.on("connection",(socket)=>{
+
+//   console.log("In");
+//   socketInstance=socket;
+
+//   socket.on('createTrade', () =>{
+                
+//     console.log("event occured");
+
+//     //console.log(data);
+
+//     io.emit("newTrade")
+    
+
+// })
+// })
+
 
 
 server.on("error", onError);

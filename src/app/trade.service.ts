@@ -7,9 +7,11 @@ import { map } from 'rxjs/operators'
 
 import * as moment from 'moment';
 import { Router } from "@angular/router";
+import { SocketService } from "./socket.service";
 
 
 @Injectable({providedIn:'root'})
+@Injectable()
 export class TradeService{
 
     trades:Trade[];
@@ -20,7 +22,7 @@ export class TradeService{
 
 
 
-    constructor(private http:HttpClient,private router:Router){
+    constructor(private http:HttpClient,private router:Router,private socketService:SocketService){
 
     }
 
@@ -38,6 +40,11 @@ export class TradeService{
         this.router.navigate(["/trades"]);
 
         this.getAllTrades();
+
+        this.socketService.sendNotification("changeTrade");
+
+        
+
         })
 
         
@@ -85,7 +92,9 @@ export class TradeService{
 
                         side: trade.side,
 
-                        tradeId:trade.tradeId
+                        tradeId:trade.tradeId,
+
+                        creator:trade.creator
 
                     }
 
@@ -134,6 +143,9 @@ export class TradeService{
             this.router.navigate(["/trades"]);
 
             this.getAllTrades();
+
+
+        this.socketService.sendNotification("changeTrade");
         })
     }
 

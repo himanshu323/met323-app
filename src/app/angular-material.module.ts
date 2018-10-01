@@ -1,7 +1,7 @@
 import { Component } from "@angular/core/src/metadata/directives";
 import { NgModule } from "@angular/core";
 import { FlexLayoutModule } from "@angular/flex-layout";
-import { MatFormFieldModule, MatInputModule, MatCardModule, MatSelectModule, MatDatepickerModule, MatButtonModule, MatNativeDateModule, MatRadioModule, MatCheckboxModule, MatTableModule, MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatSortModule, MatPaginatorModule, MatChipsModule } from "@angular/material";
+import { MatFormFieldModule, MatInputModule, MatCardModule, MatSelectModule, MatDatepickerModule, MatButtonModule, MatNativeDateModule, MatRadioModule, MatCheckboxModule, MatTableModule, MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatSortModule, MatPaginatorModule, MatChipsModule, MatProgressSpinnerModule, MatDialogModule } from "@angular/material";
 
 
 
@@ -42,10 +42,12 @@ exports:[
     MatListModule,
     MatSortModule,
     MatPaginatorModule,
-    MatChipsModule
+    MatChipsModule,
+    MatProgressSpinnerModule,
+    MatDialogModule
 ]
 })
-export class AppMaterialModule{
+export class AngularMaterialModule{
 
 
 }

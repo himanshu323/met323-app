@@ -16,22 +16,30 @@ import { TradeComponent } from 'src/app/trades/trade.component';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
 import { HeaderComponent } from './navigation/header/header.component';
-import { AppMaterialModule } from 'src/app/app-material.module';
-import { HttpClientModule } from '@angular/common/http';
+
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthRoutingModule } from './auth/auth-routing.module';
+import { AngularMaterialModule } from './angular-material.module';
+import { ErrorInterceptor } from './auth/error-interceptor';
+import { AuthInterceptor } from './auth/auth-interceptor';
+import { ErrorComponent } from './error/error.component';
+import { HomeComponent } from './home/home.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,HeaderComponent,TradeCreateComponent, TradeListComponent, 
-    TradeSearchComponent,TradeComponent, SidenavListComponent
+    TradeSearchComponent,TradeComponent, SidenavListComponent,ErrorComponent, HomeComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AppMaterialModule,
+    AngularMaterialModule,
     FlexLayoutModule,
     FormsModule,
    AppRoutingModule,
-   HttpClientModule
+   HttpClientModule,
+  
     
     
 
@@ -41,7 +49,9 @@ import { HttpClientModule } from '@angular/common/http';
 
   
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [{provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true},
+    {provide:HTTP_INTERCEPTORS,useClass:ErrorInterceptor,multi:true}],
+  bootstrap: [AppComponent],
+  entryComponents:[ErrorComponent]
 })
 export class AppModule { }

@@ -5,6 +5,9 @@ import { TradeService } from '../../trade.service';
 import { Trade } from '../../trade.model';
 import { TradeSearch } from '../../trade-search.model';
 import { Router } from '@angular/router';
+import { AuthService } from '../../auth/auth.service';
+import { Subscription } from 'rxjs';
+import { SocketService } from '../../socket.service';
 
 
 @Component({
@@ -16,11 +19,19 @@ export class TradeListComponent implements OnInit {
 
   trades:Trade[];
 
+  selectedRowIndex: number = -1;
+
+  userIsAuthenticated:boolean;
+
+  private authStatusSub:Subscription;
+
+  userId:string;
+
   commodityFilter;
 
   locationFilter;
 
-  displayedColumns: string[] = ['tradeDate', 'commodity', 'side', 'qty','price','counterparty','location','actions'];
+  displayedColumns: string[] = ['tradeDate','tradeId', 'commodity', 'side', 'qty','price','counterparty','location','actions'];
 
   dataSource;
 
@@ -30,7 +41,8 @@ export class TradeListComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator:MatPaginator;
 
-  constructor(private traderService:TradeService,private router:Router) { 
+  constructor(private traderService:TradeService,private router:Router,private authService:AuthService,
+    private socketService:SocketService) { 
 
 
 
@@ -40,6 +52,13 @@ export class TradeListComponent implements OnInit {
   ngOnInit() {
 
     
+
+    this.userIsAuthenticated=this.authService.getIsAuthenticated();
+    this.userId=this.authService.getUserId();
+   this.authStatusSub= this.authService.getAuthStatusListener().subscribe(isAuthenticated=>{
+        this.userIsAuthenticated=isAuthenticated;
+        this.userId=this.authService.getUserId();
+    })
 
     this.traderService.getAllTrades();
 
@@ -67,6 +86,16 @@ export class TradeListComponent implements OnInit {
     })
 
 
+  this.socketService.getSocketInstance().on("notifyTrade",()=>{
+
+
+    this.router.navigate(['/trades']);
+
+    this.traderService.getAllTrades();
+
+    
+
+})
   
   }
 
@@ -82,9 +111,20 @@ export class TradeListComponent implements OnInit {
       
       this.traderService.getAllTrades();
 
+
+        this.socketService.sendNotification("changeTrade");
+
     })
   }
 
+  ngOnDestroy(): void {
+    
+    this.authStatusSub.unsubscribe();
+}
+
+highlight(row){
+  this.selectedRowIndex = row.id;
+}
 
 
 }

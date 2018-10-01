@@ -24,3 +24,18 @@ table {
     width:100px;
     height: 40px;
   }
+
+  .highlight{
+    background:rgb(230, 229, 229)
+  }
+
+  #tradeTable{
+
+    border: 2px solid lightgrey;
+    
+  }
+
+.spacer{
+
+  margin: 500px;
+}

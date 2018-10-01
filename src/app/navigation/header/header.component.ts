@@ -1,4 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -7,15 +9,31 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  userIsAuthenticated=false;
+
+  private authStatusSub:Subscription;
+    ngOnDestroy(): void {
+        this.authStatusSub.unsubscribe();
+    }
+
   @Output() sideToggle=new EventEmitter<void>();
-  constructor() { }
+  constructor(private authService:AuthService) { }
 
   ngOnInit() {
+
+    this.userIsAuthenticated=this.authService.getIsAuthenticated();
+    this.authStatusSub= this.authService.getAuthStatusListener().subscribe(isAuthenticated=>{
+         this.userIsAuthenticated=isAuthenticated;
+     })
   }
 
 
   onToggle(){
-this.sideToggle.emit();
+    this.sideToggle.emit();
 
   }
+
+  onLogout(){
+    this.authService.logOut();
+}
 }

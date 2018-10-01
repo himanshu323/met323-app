@@ -1,4 +1,4 @@
-<mat-card >
+<mat-card id="tradeCreateCard" >
     <mat-card-title *ngIf="tradeCreateButton" >
 
         <section  fxLayout fxLayoutAlign="end center" >
@@ -95,7 +95,9 @@
 <section fxLayout="row" fxLayoutAlign="center center">
 <button type="text" mat-raised-button color="warn"   (click)="onTradeCancel()">Cancel</button> 
 <span class="spacer"></span>
-  <button type="text" mat-raised-button color="primary" type="submit" [disabled]="tradeForm.invalid">Save</button>
+  <button type="text" mat-raised-button color="primary" type="submit" [disabled]="tradeForm.invalid" *ngIf="mode==='edit'">Save</button>
+
+  <button type="text" mat-raised-button color="primary" type="submit" [disabled]="tradeForm.invalid" *ngIf="mode==='create'">Create</button>
 </section>
 
 

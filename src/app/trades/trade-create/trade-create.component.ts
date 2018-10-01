@@ -39,12 +39,15 @@ export class TradeCreateComponent implements OnInit {
 
     id: null,
 
-    tradeId:null
+    tradeId:null,
+
+    creator:null
 
 
   };
   ngOnInit(){
 
+    console.log("Mode",this.mode);
 
     this.route.paramMap.subscribe(params=>{
 
@@ -84,7 +87,9 @@ export class TradeCreateComponent implements OnInit {
 
                 id: trade._id,
 
-                tradeId:trade.tradeId
+                tradeId:trade.tradeId,
+
+                creator:trade.creator
 
 
               };
@@ -172,7 +177,9 @@ export class TradeCreateComponent implements OnInit {
   
       side:form.value.side,
 
-      tradeId:null
+      tradeId:null,
+
+      creator:null
   
     }
 
@@ -205,7 +212,9 @@ export class TradeCreateComponent implements OnInit {
 
       side: form.value.side,
 
-      tradeId:form.value.tradeId
+      tradeId:form.value.tradeId,
+
+      creator:this.trade.creator
 
 
     }
