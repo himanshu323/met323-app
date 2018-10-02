@@ -1,7 +1,0 @@
-{
-    "env":{
-
-        "MONGODB_PASSWORD":"lpqaqa12",
-        "JWT_TOKEN":"secret_thisfornow"
-    }
-}

@@ -6,6 +6,7 @@ const { pushToMessageQ } = require('../Q/producer');
 const _=require("lodash");
 
 exports.createTrade=(req,resp)=>{
+    console.log(req.userData);
 
     let tradeId=_.random(1000000,9999999);
     let trade=new Trade({
@@ -21,18 +22,18 @@ exports.createTrade=(req,resp)=>{
 
     })
 
-    console.log("Inside");
-
-    console.log(trade);
+   
 
     trade.save().then(data=>{
-
+        if(process.env.NODE_ENV!=="test"){
         pushToMessageQ(JSON.stringify(data));
+    }
         resp.status(201).send({message:"Trade added successfully"})
     }).catch(error=>{
 
-        console.log(error);
+       
         resp.status(500).send({
+            
             message:"Trade Add Failed"
         })
     })
@@ -90,7 +91,7 @@ exports.fetchTradeWithId=(req,resp)=>{
     }).catch(error=>{
 
         resp.status(500).send({
-            message:"Post fetch failed"
+            message:"Trade fetch failed"
         })
     })
 }
@@ -114,7 +115,10 @@ exports.updateTrade=(req,resp)=>{
 
         console.log(trade);
             if(trade.n>0){
-                pushToMessageQ(JSON.stringify(trade));
+
+                if(process.env.NODE_ENV!=="test"){
+                    pushToMessageQ(JSON.stringify(data));
+                }
                 return resp.status(201).send({
                     message:"Updated successfully"
                 })
@@ -140,12 +144,14 @@ exports.deleteTrade=(req,resp)=>{
     Trade.deleteOne({ _id: req.params.id ,creator:req.userData.id}).then((res) => {
 
         if (res.n > 0) {
-            pushToMessageQ(JSON.stringify(res));
-            resp.send({ message: "Trade deleted successfully" })
+            if(process.env.NODE_ENV!=="test"){
+                pushToMessageQ(JSON.stringify(data));
+            }
+            resp.status(200).send({ message: "Trade deleted successfully" })
         }
         else {
-            resp.status(401).send({
-                message: "Un-Authorized"
+            resp.status(400).send({
+                message: "You are not authorized"
             })
         }
 

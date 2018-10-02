@@ -1,4 +1,6 @@
 const http=require("http");
+
+let config=require("./config/config")
 const app=require("./app");
 const debug=require("debug")("node-angular");
 const socketIO=require("socket.io");
@@ -82,4 +84,6 @@ server.on("listening", onListening);
 
 
 server.listen(port);
+
+module.exports={app}
 

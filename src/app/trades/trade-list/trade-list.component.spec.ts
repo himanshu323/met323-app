@@ -12,6 +12,7 @@ import { AngularMaterialModule } from 'src/app/angular-material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthService } from 'src/app/auth/auth.service';
 import { SocketService } from 'src/app/socket.service';
+import { of } from 'rxjs';
 
 describe('TradeListComponent', () => {
   let component: TradeListComponent;
@@ -37,10 +38,27 @@ describe('TradeListComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(TradeListComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+   // fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it("should set auth prop to true and set the user id for the curret user",()=>{
+
+    let service=TestBed.get(AuthService);
+
+    spyOn(service,"getAuthStatusListener").and.returnValue(of(true));
+
+    // spyOn(service,"getUserId").and.returnValue("321");
+
+    // spyOn(service,"getAllTrades");
+
+    //fixture.detectChanges();
+
+    //expect(component.userIsAuthenticated).toBeTruthy();
+
+   // expect(component.userId).toBe("321");
+   })
 });

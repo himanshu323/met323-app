@@ -40,11 +40,16 @@ exports.userLogin=(req,resp)=>{
 
     let fetchedUser;
     User.findOne({email:req.body.email}).then(user=>{
+        console.log("Ouutttt login")
 
+        console.log(user);
+
+        console.log(req.body.password);
         if(!user){
 
+            console.log("Inside login")
           return  resp.status(401).json({
-                message:'Auth Failed'
+                message:'Invalid emailId : Auth Failed'
             })
         }
 
@@ -53,17 +58,17 @@ exports.userLogin=(req,resp)=>{
 
 
     }).then(result=>{
-
+ console.log(result);
         if(!result){
             return  resp.status(401).json({
-                message:'Auth Failed'
+                message:'Invalid password : Auth Failed'
             })
         }
 
         let token=jwt.sign({email:fetchedUser.email,id:fetchedUser._id},process.env.JWT_TOKEN,{expiresIn:'1h'});
 
 
-        resp.status(201).json({
+        resp.status(200).json({
             
             token:token,
             expiresIn:3600,

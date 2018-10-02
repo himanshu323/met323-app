@@ -50,7 +50,8 @@ export class TradeCreateComponent implements OnInit {
     console.log("Mode",this.mode);
 
     this.route.paramMap.subscribe(params=>{
-
+      console.log("test2Inside");
+      console.log(params);
       console.log(params.has("id"))
         if(params.has("id")){
 
@@ -103,6 +104,8 @@ export class TradeCreateComponent implements OnInit {
         // }
 
     })
+
+    console.log("out");
     
   }
 
