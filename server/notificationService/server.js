@@ -1,10 +1,10 @@
 const http=require("http");
 
 const debug=require("debug")("node-angular");
+let config=require("./config/config");
 const socketIO=require("socket.io");
 const app=require("express")();
-
-const httpProxy = require('express-http-proxy')
+const  {consumeQueue}=require("./consumer");
 
 let socketInstance;
 
@@ -54,37 +54,65 @@ const normalizePort = val => {
     
   };
   
-  const port = normalizePort(process.env.PORT || "9090");
+  const port = normalizePort(process.env.PORT || "3001");
  
+  app.use((req, resp, next) => {
 
-let server=http.createServer(app)
-
-
-
-
-
-const notifyProxy = httpProxy('http://localhost:3001')
-
-
-app.use((req, resp, next) => {
-
-    resp.setHeader("Access-Control-Allow-Origin", "http://localhost:4200");
+    resp.setHeader("Access-Control-Allow-Origin", "*");
 
 
     resp.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept,Authorization");
 
     resp.setHeader("Access-Control-Allow-Methods", "GET,POST,PATCH,DELETE,OPTIONS,PUT")
-
-    resp.setHeader("Access-Control-Allow-Credentials", "true")
     next();
 })
 
-// Proxy request
-app.get('/', (req, res, next) => {
+let server=http.createServer(app)
+// app.get("/",(req,resp,next)=>{
 
-    console.log("Inside");
-  notifyProxy(req, res, next)
-});
+  console.log("onSockConn")
+  let io= socketIO(server);
+
+
+
+
+io.on("connection",(socket)=>{
+
+  console.log("In");
+  socketInstance=socket;
+
+  socket.on('changeTrade', () =>{
+                
+    console.log("event occured");
+
+    consumeQueue(io);
+  
+})
+
+
+    //console.log(data);
+
+   // io.emit("newTrade")
+    
+
+})
+
+
+// socket.on('deleteTrade', () =>{
+                
+//   console.log("event occured");
+
+//   consumeQueue(io);
+
+//   //console.log(data);
+
+//  // io.emit("newTrade")
+  
+
+// })
+// })
+
+
 
 server.on("error", onError);
 server.on("listening", onListening);

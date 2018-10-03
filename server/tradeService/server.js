@@ -1,9 +1,9 @@
 const http=require("http");
 
+let config=require("./config/config")
+const app=require("./app");
 const debug=require("debug")("node-angular");
 const socketIO=require("socket.io");
-const app=require("express")();
-const  {consumeQueue}=require("./consumer");
 
 let socketInstance;
 
@@ -53,48 +53,29 @@ const normalizePort = val => {
     
   };
   
-  const port = normalizePort(process.env.PORT || "3001");
- 
+  const port = normalizePort(process.env.PORT || "3002");
+  app.set("port", port);
 
 let server=http.createServer(app)
 
-let io= socketIO(server);
+// let io= socketIO(server);
 
+// io.on("connection",(socket)=>{
 
+//   console.log("In");
+//   socketInstance=socket;
 
-
-io.on("connection",(socket)=>{
-
-  console.log("In");
-  socketInstance=socket;
-
-  socket.on('changeTrade', () =>{
+//   socket.on('createTrade', () =>{
                 
-    console.log("event occured");
+//     console.log("event occured");
 
-    consumeQueue(io);
+//     //console.log(data);
 
-    //console.log(data);
-
-   // io.emit("newTrade")
+//     io.emit("newTrade")
     
 
-})
-
-
-// socket.on('deleteTrade', () =>{
-                
-//   console.log("event occured");
-
-//   consumeQueue(io);
-
-//   //console.log(data);
-
-//  // io.emit("newTrade")
-  
-
 // })
-})
+// })
 
 
 
@@ -103,4 +84,6 @@ server.on("listening", onListening);
 
 
 server.listen(port);
+
+module.exports={app}
 

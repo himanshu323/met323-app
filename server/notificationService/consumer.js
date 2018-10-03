@@ -4,7 +4,7 @@ const q = 'test_q';
 
 let channel;
 
-amqp.connect("amqp://mtfrbwon:d6FXQeZoNyMMLBmW8Fg3YFbZzNQoDdoZ@woodpecker.rmq.cloudamqp.com/mtfrbwon", (err, conn) => {
+amqp.connect(process.env.AMQP_URL, (err, conn) => {
   if (err) throw new Error(err);
 
   conn.createChannel((err, ch) => {

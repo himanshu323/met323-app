@@ -10,7 +10,7 @@ export class SocketService{
 
     initializeSocket(){
 
-        this.socket = socketIo("http://localhost:3001");
+        this.socket = socketIo("http://localhost:3003");
 
 
     }

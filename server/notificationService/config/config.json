@@ -1,0 +1,16 @@
+{
+    "test":{
+
+        "PORT":3003,
+        "AMQP_URL":"amqp://mtfrbwon:d6FXQeZoNyMMLBmW8Fg3YFbZzNQoDdoZ@woodpecker.rmq.cloudamqp.com/mtfrbwon"
+        
+    }
+,
+    "development":{
+
+        "PORT":3003,
+        "AMQP_URL":"amqp://mtfrbwon:d6FXQeZoNyMMLBmW8Fg3YFbZzNQoDdoZ@woodpecker.rmq.cloudamqp.com/mtfrbwon"
+        
+
+    }
+}
