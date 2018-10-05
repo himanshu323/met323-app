@@ -1,0 +1,16 @@
+
+{
+	"testData": {
+		"basePage": { 
+			"url": "http://www.way2automation.com/angularjs-protractor/banking/#/login"
+		},
+		"bankManagerDetailsPage": {
+			"firstName": "Raj",
+			"lastName": "Test",
+			"postalCode": "765432",
+			"customerSelectIndex": "1",
+			"currencySelectVal": "Pound",
+			"searchName": "Ron"
+		}
+	}
+}
