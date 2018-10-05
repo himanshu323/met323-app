@@ -1,7 +1,5 @@
 const http=require("http");
 let config=require("./config/config")
-
-
 const debug=require("debug")("node-angular");
 const socketIO=require("socket.io");
 const app=require("express")();
@@ -80,54 +78,21 @@ const authProxy = httpProxy(process.env.AUTH_SERVICE);
 const tradeProxy=httpProxy(process.env.TRADE_SERVICE);
 
 const notifyProxy=httpProxy(process.env.NOTIFY_SERVICE);
-// Proxy request
-
-let tradeRoute=(req, res, next) => {
-
-  console.log
-tradeProxy(req, res, next)
-};
-let tradePreRoute="/api/trades"
-app.get(tradePreRoute+"",tradeRoute);
 
 
-app.get(tradePreRoute+"/:id",tradeRoute)
+app.all(["/api/:service","/api/:service/**","/"], (req, resp, next) => {
+  
+  if (req.params.service.indexOf("trades")>=0) {
+    tradeProxy(req, resp, next)
 
-app.put(tradePreRoute+"/:id",tradeRoute)
-
-app.delete(tradePreRoute+"/:id",tradeRoute)
-
-app.post(tradePreRoute+"",tradeRoute)
-
-
-let authRoute=(req, res, next) => {
-
-  console.log
-authProxy(req, res, next)
-};
-let authPreRoute="/api/user"
-app.post(authPreRoute+"/signUp",authRoute)
-
-
-app.post(authPreRoute+"/login",authRoute)
-
-let notifyRoute=(req, res, next) => {
-
-  console.log
-notifyProxy(req, res, next)
-};
-
-// app.get('/api/user/'+userRoutes, (req, res, next) => {
-
-    
-//   authProxy(req, res, next)
-// });
-
-app.get('/', (req, res, next) => {
-
-    
-  notifyProxy(req, res, next)
-});
+  }
+  else if (req.params.service.indexOf("user") >= 0){
+    authProxy(req,resp,next);
+  }
+  else{
+    notifyProxy(req, resp, next);
+  }
+  })
 
 server.on("error", onError);
 server.on("listening", onListening);

@@ -1,0 +1,122 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "Test the homepage",
+    "line": 1,
+    "id": "test-the-homepage",
+    "tags": [],
+    "uri": "..\\features\\homepage.feature",
+    "elements": [
+      {
+        "id": "test-the-homepage;verify-course-details",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "Verify Course Details",
+        "tags": [
+          {
+            "name": "@smoke",
+            "line": 2
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "..\\Hooks\\HookDef.ts:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3632000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 6,
+            "name": "Get all the headings",
+            "match": {
+              "location": "HomePageSteps.ts:27"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 99000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 7,
+            "name": "Click on 'Selenium Framework Course' course",
+            "match": {
+              "location": "HomePageSteps.ts:33"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 96000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 8,
+            "name": "Shoud see 'Selenium Framework Course' under Course Details Page",
+            "match": {
+              "location": "HomePageSteps.ts:40"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 35000000
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "Courses",
+                      "Duration"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Test1",
+                      "2"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "ABC",
+                      "4"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "Then ",
+            "line": 9,
+            "name": "Read all the courses from table",
+            "match": {
+              "location": "HomePageSteps.ts:46"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "..\\Hooks\\HookDef.ts:21"
+            },
+            "result": {
+              "status": "passed"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
