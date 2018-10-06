@@ -18,6 +18,7 @@ let tradeSearch = new tradeSearch_1.TradeSearch();
 let data = dataFile;
 describe("Trade Search Test", () => __awaiter(this, void 0, void 0, function* () {
     it("login to trade search", () => __awaiter(this, void 0, void 0, function* () {
+        yield browser.manage().win;
         yield basePage.navigateToURL(data);
         yield homePage.loginToTrade(data.testData.login.email, data.testData.login.password);
     }));

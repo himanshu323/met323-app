@@ -7,7 +7,7 @@
       "name" : "Expected true to be false.",
       "children" : [ {
         "name" : "Open Account",
-        "uid" : "f41edeed9137b89",
+        "uid" : "4f3da3a61e3bfc0b",
         "parentUid" : "293aa7b91ef44dcd8cc1f32bddfcf900",
         "status" : "failed",
         "time" : {
@@ -23,13 +23,13 @@
       "name" : "Failed: script timeout: result was not received in 11 seconds\n                  (Session info: chrome=69.0.3497.100)\n                  (Driver info: chromedriver=2.42.591059 (a3d9684d10d61aa0c45f6723b327283be1ebaad8),platform=Mac OS X 10.13.6 x86_64)",
       "children" : [ {
         "name" : "login to trade search",
-        "uid" : "67c777d295ef4ef8",
+        "uid" : "5c11113f25889f51",
         "parentUid" : "3c016c786f1fded7eda392b0200f1c9c",
         "status" : "failed",
         "time" : {
-          "start" : 1538811493178,
-          "stop" : 1538811516107,
-          "duration" : 22929
+          "start" : 1538811873502,
+          "stop" : 1538811899267,
+          "duration" : 25765
         },
         "flaky" : true,
         "parameters" : [ ]

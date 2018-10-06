@@ -13,7 +13,7 @@ describe("Trade Search Test",async()=>{
 
     it("login to trade search",async()=>{
 
-       
+       await browser.manage().win
 
         
         await basePage.navigateToURL(data);

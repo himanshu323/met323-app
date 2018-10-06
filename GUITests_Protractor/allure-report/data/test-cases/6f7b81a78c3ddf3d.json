@@ -1,0 +1,292 @@
+{
+  "uid" : "6f7b81a78c3ddf3d",
+  "name" : "search the trade",
+  "fullName" : "Trade Search Test.search the trade",
+  "historyId" : "befc418a47413cbfeadb56fcc680ae2",
+  "time" : {
+    "start" : 1538811899267,
+    "stop" : 1538811899651,
+    "duration" : 384
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : true,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "79ba75d38bbe2b0b",
+      "name" : "Screenshot",
+      "source" : "79ba75d38bbe2b0b.png",
+      "type" : "image/png",
+      "size" : 130776
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "Trade Search Test"
+  }, {
+    "name" : "testClass",
+    "value" : "Trade Search Test"
+  }, {
+    "name" : "testMethod",
+    "value" : "search the trade"
+  }, {
+    "name" : "package",
+    "value" : "Trade Search Test"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ {
+      "uid" : "427e028f1acddd32",
+      "status" : "passed",
+      "time" : {
+        "start" : 1538811516108,
+        "stop" : 1538811516506,
+        "duration" : 398
+      }
+    }, {
+      "uid" : "3d1665ff9171b2d0",
+      "status" : "passed",
+      "time" : {
+        "start" : 1538811381865,
+        "stop" : 1538811382231,
+        "duration" : 366
+      }
+    }, {
+      "uid" : "488b825368f52c9c",
+      "status" : "passed",
+      "time" : {
+        "start" : 1538811202050,
+        "stop" : 1538811202520,
+        "duration" : 470
+      }
+    }, {
+      "uid" : "fc6912bf9a77c95d",
+      "status" : "failed",
+      "statusDetails" : "Failed: script timeout: result was not received in 11 seconds\n                  (Session info: chrome=69.0.3497.100)\n                  (Driver info: chromedriver=2.42.591059 (a3d9684d10d61aa0c45f6723b327283be1ebaad8),platform=Mac OS X 10.13.6 x86_64)",
+      "time" : {
+        "start" : 1538811128960,
+        "stop" : 1538811148710,
+        "duration" : 19750
+      }
+    }, {
+      "uid" : "a5b64ed02c8b77b3",
+      "status" : "failed",
+      "statusDetails" : "Failed: script timeout: result was not received in 11 seconds\n                  (Session info: chrome=69.0.3497.100)\n                  (Driver info: chromedriver=2.42.591059 (a3d9684d10d61aa0c45f6723b327283be1ebaad8),platform=Mac OS X 10.13.6 x86_64)",
+      "time" : {
+        "start" : 1538810858288,
+        "stop" : 1538810876763,
+        "duration" : 18475
+      }
+    }, {
+      "uid" : "282bd2f8dea85f2b",
+      "status" : "failed",
+      "statusDetails" : "Failed: script timeout: result was not received in 11 seconds\n                  (Session info: chrome=69.0.3497.100)\n                  (Driver info: chromedriver=2.42.591059 (a3d9684d10d61aa0c45f6723b327283be1ebaad8),platform=Mac OS X 10.13.6 x86_64)",
+      "time" : {
+        "start" : 1538810776854,
+        "stop" : 1538810795838,
+        "duration" : 18984
+      }
+    }, {
+      "uid" : "c27dc1391c2dbd51",
+      "status" : "failed",
+      "statusDetails" : "Failed: No element found using locator: By(xpath, //form[@id='searchForm']//mat-select[@name='commodity'])",
+      "time" : {
+        "start" : 1538810657794,
+        "stop" : 1538810665614,
+        "duration" : 7820
+      }
+    }, {
+      "uid" : "faa97027aa3d7a9d",
+      "status" : "failed",
+      "statusDetails" : "Failed: No element found using locator: By(xpath, //form[@id='searchForm']//mat-select[@name='commodity'])",
+      "time" : {
+        "start" : 1538810580227,
+        "stop" : 1538810588338,
+        "duration" : 8111
+      }
+    }, {
+      "uid" : "a1d9b10a5b6015dd",
+      "status" : "failed",
+      "statusDetails" : "Failed: script timeout: result was not received in 11 seconds\n                  (Session info: chrome=69.0.3497.100)\n                  (Driver info: chromedriver=2.42.591059 (a3d9684d10d61aa0c45f6723b327283be1ebaad8),platform=Mac OS X 10.13.6 x86_64)",
+      "time" : {
+        "start" : 1538810479763,
+        "stop" : 1538810499019,
+        "duration" : 19256
+      }
+    }, {
+      "uid" : "99b12b1c3ca0e7a0",
+      "status" : "failed",
+      "statusDetails" : "Failed: script timeout: result was not received in 11 seconds\n                  (Session info: chrome=69.0.3497.100)\n                  (Driver info: chromedriver=2.42.591059 (a3d9684d10d61aa0c45f6723b327283be1ebaad8),platform=Mac OS X 10.13.6 x86_64)",
+      "time" : {
+        "start" : 1538810422553,
+        "stop" : 1538810443471,
+        "duration" : 20918
+      }
+    }, {
+      "uid" : "92e47231a2561551",
+      "status" : "failed",
+      "statusDetails" : "Failed: No element found using locator: By(xpath, //form[@id='searchForm']//mat-select[@name='commodity'])",
+      "time" : {
+        "start" : 1538810286498,
+        "stop" : 1538810294165,
+        "duration" : 7667
+      }
+    }, {
+      "uid" : "681754ac03e82ad6",
+      "status" : "failed",
+      "statusDetails" : "Failed: script timeout: result was not received in 11 seconds\n                  (Session info: chrome=69.0.3497.100)\n                  (Driver info: chromedriver=2.42.591059 (a3d9684d10d61aa0c45f6723b327283be1ebaad8),platform=Mac OS X 10.13.6 x86_64)",
+      "time" : {
+        "start" : 1538810183974,
+        "stop" : 1538810204806,
+        "duration" : 20832
+      }
+    }, {
+      "uid" : "c6374f16771e1bbc",
+      "status" : "failed",
+      "statusDetails" : "Failed: script timeout: result was not received in 11 seconds\n                  (Session info: chrome=69.0.3497.100)\n                  (Driver info: chromedriver=2.42.591059 (a3d9684d10d61aa0c45f6723b327283be1ebaad8),platform=Mac OS X 10.13.6 x86_64)",
+      "time" : {
+        "start" : 1538810049725,
+        "stop" : 1538810068724,
+        "duration" : 18999
+      }
+    }, {
+      "uid" : "25f2c8f7e2e07929",
+      "status" : "failed",
+      "statusDetails" : "Failed: script timeout: result was not received in 11 seconds\n                  (Session info: chrome=69.0.3497.100)\n                  (Driver info: chromedriver=2.42.591059 (a3d9684d10d61aa0c45f6723b327283be1ebaad8),platform=Mac OS X 10.13.6 x86_64)",
+      "time" : {
+        "start" : 1538809966130,
+        "stop" : 1538809984645,
+        "duration" : 18515
+      }
+    }, {
+      "uid" : "d9802c44dfc94701",
+      "status" : "failed",
+      "statusDetails" : "Failed: No element found using locator: By(xpath, //form[@id='searchForm']//mat-select[@name='commodity'])",
+      "time" : {
+        "start" : 1538809914416,
+        "stop" : 1538809922257,
+        "duration" : 7841
+      }
+    }, {
+      "uid" : "309c4a6c811e9777",
+      "status" : "failed",
+      "statusDetails" : "Failed: script timeout: result was not received in 11 seconds\n                  (Session info: chrome=69.0.3497.100)\n                  (Driver info: chromedriver=2.42.591059 (a3d9684d10d61aa0c45f6723b327283be1ebaad8),platform=Mac OS X 10.13.6 x86_64)",
+      "time" : {
+        "start" : 1538809820829,
+        "stop" : 1538809839802,
+        "duration" : 18973
+      }
+    }, {
+      "uid" : "112de1f06d208ac8",
+      "status" : "failed",
+      "statusDetails" : "Failed: script timeout: result was not received in 11 seconds\n                  (Session info: chrome=69.0.3497.100)\n                  (Driver info: chromedriver=2.42.591059 (a3d9684d10d61aa0c45f6723b327283be1ebaad8),platform=Mac OS X 10.13.6 x86_64)",
+      "time" : {
+        "start" : 1538809686386,
+        "stop" : 1538809705768,
+        "duration" : 19382
+      }
+    }, {
+      "uid" : "1cde7ffe44d7b1ec",
+      "status" : "failed",
+      "statusDetails" : "Failed: script timeout: result was not received in 11 seconds\n                  (Session info: chrome=69.0.3497.100)\n                  (Driver info: chromedriver=2.42.591059 (a3d9684d10d61aa0c45f6723b327283be1ebaad8),platform=Mac OS X 10.13.6 x86_64)",
+      "time" : {
+        "start" : 1538809593382,
+        "stop" : 1538809605781,
+        "duration" : 12399
+      }
+    }, {
+      "uid" : "c925c61a6b140ba0",
+      "status" : "failed",
+      "statusDetails" : "Failed: script timeout: result was not received in 11 seconds\n                  (Session info: chrome=69.0.3497.100)\n                  (Driver info: chromedriver=2.42.591059 (a3d9684d10d61aa0c45f6723b327283be1ebaad8),platform=Mac OS X 10.13.6 x86_64)",
+      "time" : {
+        "start" : 1538809482429,
+        "stop" : 1538809495723,
+        "duration" : 13294
+      }
+    }, {
+      "uid" : "98486dac31cce398",
+      "status" : "failed",
+      "statusDetails" : "Failed: script timeout: result was not received in 11 seconds\n                  (Session info: chrome=69.0.3497.100)\n                  (Driver info: chromedriver=2.42.591059 (a3d9684d10d61aa0c45f6723b327283be1ebaad8),platform=Mac OS X 10.13.6 x86_64)",
+      "time" : {
+        "start" : 1538809431198,
+        "stop" : 1538809443539,
+        "duration" : 12341
+      }
+    }, {
+      "uid" : "f13332ec2f26cb12",
+      "status" : "failed",
+      "statusDetails" : "Failed: script timeout: result was not received in 11 seconds\n                  (Session info: chrome=69.0.3497.100)\n                  (Driver info: chromedriver=2.42.591059 (a3d9684d10d61aa0c45f6723b327283be1ebaad8),platform=Mac OS X 10.13.6 x86_64)",
+      "time" : {
+        "start" : 1538809233319,
+        "stop" : 1538809245739,
+        "duration" : 12420
+      }
+    }, {
+      "uid" : "fb66a7b1d88c39b",
+      "status" : "failed",
+      "statusDetails" : "Failed: script timeout: result was not received in 11 seconds\n                  (Session info: chrome=69.0.3497.100)\n                  (Driver info: chromedriver=2.42.591059 (a3d9684d10d61aa0c45f6723b327283be1ebaad8),platform=Mac OS X 10.13.6 x86_64)",
+      "time" : {
+        "start" : 1538809109316,
+        "stop" : 1538809121747,
+        "duration" : 12431
+      }
+    }, {
+      "uid" : "52287cea43f6792f",
+      "status" : "failed",
+      "statusDetails" : "Failed: script timeout: result was not received in 11 seconds\n                  (Session info: chrome=69.0.3497.100)\n                  (Driver info: chromedriver=2.42.591059 (a3d9684d10d61aa0c45f6723b327283be1ebaad8),platform=Mac OS X 10.13.6 x86_64)",
+      "time" : {
+        "start" : 1538808936946,
+        "stop" : 1538808949865,
+        "duration" : 12919
+      }
+    }, {
+      "uid" : "55ae388e5f47ade4",
+      "status" : "failed",
+      "statusDetails" : "Failed: Cannot read property 'fromDate' of undefined",
+      "time" : {
+        "start" : 1538808832627,
+        "stop" : 1538808833432,
+        "duration" : 805
+      }
+    }, {
+      "uid" : "3fa148bde448aa04",
+      "status" : "failed",
+      "statusDetails" : "Failed: Cannot read property 'sendKeys' of undefined",
+      "time" : {
+        "start" : 1538808753233,
+        "stop" : 1538808753834,
+        "duration" : 601
+      }
+    }, {
+      "uid" : "fb4353fd917b45db",
+      "status" : "failed",
+      "statusDetails" : "Failed: Cannot read property 'fromDate' of undefined",
+      "time" : {
+        "start" : 1538808705447,
+        "stop" : 1538808706331,
+        "duration" : 884
+      }
+    } ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "6f7b81a78c3ddf3d.json",
+  "parameterValues" : [ ]
+}

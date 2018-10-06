@@ -2,44 +2,20 @@
   "uid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
   "name" : "timeline",
   "children" : [ {
-    "name" : "login to trade search",
-    "uid" : "67c777d295ef4ef8",
-    "parentUid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
-    "status" : "failed",
-    "time" : {
-      "start" : 1538811493178,
-      "stop" : 1538811516107,
-      "duration" : 22929
-    },
-    "flaky" : true,
-    "parameters" : [ ]
-  }, {
-    "name" : "Search Customer Details",
-    "uid" : "9bd56596abbbc1ad",
-    "parentUid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
-    "status" : "passed",
-    "time" : {
-      "start" : 1524118254117,
-      "stop" : 1524118254872,
-      "duration" : 755
-    },
-    "flaky" : false,
-    "parameters" : [ ]
-  }, {
     "name" : "search the trade",
-    "uid" : "c969d4084b28b9d1",
+    "uid" : "6f7b81a78c3ddf3d",
     "parentUid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
     "status" : "passed",
     "time" : {
-      "start" : 1538811516108,
-      "stop" : 1538811516506,
-      "duration" : 398
+      "start" : 1538811899267,
+      "stop" : 1538811899651,
+      "duration" : 384
     },
     "flaky" : true,
     "parameters" : [ ]
   }, {
     "name" : "Logging to Bank Manager",
-    "uid" : "b2530cd2408bdec4",
+    "uid" : "7abd29b548920de2",
     "parentUid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
     "status" : "passed",
     "time" : {
@@ -51,7 +27,7 @@
     "parameters" : [ ]
   }, {
     "name" : "Add Customer",
-    "uid" : "677c76ef598d1f44",
+    "uid" : "b56be02f50a40313",
     "parentUid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
     "status" : "passed",
     "time" : {
@@ -62,8 +38,32 @@
     "flaky" : false,
     "parameters" : [ ]
   }, {
+    "name" : "Search Customer Details",
+    "uid" : "96f6d8ef5fef8868",
+    "parentUid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
+    "status" : "passed",
+    "time" : {
+      "start" : 1524118254117,
+      "stop" : 1524118254872,
+      "duration" : 755
+    },
+    "flaky" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "login to trade search",
+    "uid" : "5c11113f25889f51",
+    "parentUid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
+    "status" : "failed",
+    "time" : {
+      "start" : 1538811873502,
+      "stop" : 1538811899267,
+      "duration" : 25765
+    },
+    "flaky" : true,
+    "parameters" : [ ]
+  }, {
     "name" : "Open Account",
-    "uid" : "f41edeed9137b89",
+    "uid" : "4f3da3a61e3bfc0b",
     "parentUid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
     "status" : "failed",
     "time" : {
