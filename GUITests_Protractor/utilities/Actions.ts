@@ -4,7 +4,7 @@
 
 import { ElementFinder, browser } from "protractor";
 import { logger } from '../utilities/loggerUtils';
-import { Options, ExportToCsv } from "export-to-csv"
+//import { Options, ExportToCsv } from "export-to-csv"
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 import { expect, assert } from "chai"
 import { write } from "fs";
@@ -73,22 +73,22 @@ export class Actions {
         await console.log(`Verifying the  subtext on element ${elementLabel}`);
         return await locator.getAttribute(attr);
     }
-    static async exportToCSV(data) {
+    // static async exportToCSV(data) {
 
-        const options: Options = {
-            title: "Test Csv",
-            useBom: true,
-            useKeysAsHeaders: true
-        }
-
-
-        const exportToCsvInstance = new ExportToCsv(options);
-
-        exportToCsvInstance.generateCsv(data);
+    //     const options: Options = {
+    //         title: "Test Csv",
+    //         useBom: true,
+    //         useKeysAsHeaders: true
+    //     }
 
 
+    //     const exportToCsvInstance = new ExportToCsv(options);
 
-    }
+    //     exportToCsvInstance.generateCsv(data);
+
+
+
+    // }
 
     /* static async writeToCSV(path,headerArray,data){
 

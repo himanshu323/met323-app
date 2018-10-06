@@ -22,26 +22,23 @@ export let config: Config = {
 			resultsDir : 'allure-results'
 
 		}));
-
-    try{
-    jasmine.getEnv().afterEach(()=>{
-    
-      browser.takeScreenshot().then(function(png) {
-        allure.createAttachment('Screenshot', function() {
-					return new Buffer(png, 'base64')
-				}, 'image/png')();
-				
-			})
-    }); }
-    catch(e){
-      
-    }
+   
+  
+    jasmine.getEnv().afterEach(function(done){
+      browser.takeScreenshot().then(function (png) {
+        allure.createAttachment('Screenshot', function () {
+          return new Buffer(png, 'base64')
+        }, 'image/png')();
+        done();
+      })
+    });
+  
   },
   
   capabilities: {
     browserName: 'chrome'
   },
-  specs: [ './TestApp/specs/BankManagerTest.js' ],
+  specs: [ './TestApp/specs/tradeSearchTest.js' ],
  
 
   // You could set no globals to true to avoid jQuery '$' and protractor '$'

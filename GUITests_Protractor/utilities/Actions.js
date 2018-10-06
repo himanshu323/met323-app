@@ -13,7 +13,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const protractor_1 = require("protractor");
 const loggerUtils_1 = require("../utilities/loggerUtils");
-const export_to_csv_1 = require("export-to-csv");
+//import { Options, ExportToCsv } from "export-to-csv"
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 var csvWriter = require('csv-write-stream');
 var writer = csvWriter();
@@ -69,17 +69,15 @@ class Actions {
             return yield locator.getAttribute(attr);
         });
     }
-    static exportToCSV(data) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const options = {
-                title: "Test Csv",
-                useBom: true,
-                useKeysAsHeaders: true
-            };
-            const exportToCsvInstance = new export_to_csv_1.ExportToCsv(options);
-            exportToCsvInstance.generateCsv(data);
-        });
-    }
+    // static async exportToCSV(data) {
+    //     const options: Options = {
+    //         title: "Test Csv",
+    //         useBom: true,
+    //         useKeysAsHeaders: true
+    //     }
+    //     const exportToCsvInstance = new ExportToCsv(options);
+    //     exportToCsvInstance.generateCsv(data);
+    // }
     /* static async writeToCSV(path,headerArray,data){
 
         const csvWriter = createCsvWriter({

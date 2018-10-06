@@ -2,14 +2,16 @@
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator.throw(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
         function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments)).next());
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-const protractor_1 = require('protractor');
-const customLocator_1 = require('./customLocator');
-const logger = require('winston');
+Object.defineProperty(exports, "__esModule", { value: true });
+const protractor_1 = require("protractor");
+const customLocator_1 = require("./customLocator");
+const logger = require("winston");
+var IdentificationType;
 (function (IdentificationType) {
     IdentificationType[IdentificationType["Name"] = 0] = "Name";
     IdentificationType[IdentificationType["ID"] = 1] = "ID";
@@ -22,8 +24,7 @@ const logger = require('winston');
     IdentificationType[IdentificationType["NgShow"] = 8] = "NgShow";
     IdentificationType[IdentificationType["NgClick"] = 9] = "NgClick";
     IdentificationType[IdentificationType["Model"] = 10] = "Model";
-})(exports.IdentificationType || (exports.IdentificationType = {}));
-var IdentificationType = exports.IdentificationType;
+})(IdentificationType = exports.IdentificationType || (exports.IdentificationType = {}));
 class BasePage {
     ElementLocator(obj) {
         switch (obj.type) {

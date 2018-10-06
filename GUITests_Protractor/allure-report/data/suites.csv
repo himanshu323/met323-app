@@ -1,0 +1,7 @@
+"Status","Name","Duration in ms","Description"
+"failed","Trade Search Test.login to trade search","22929",""
+"passed","Testing the Bank Manager E2E.Search Customer Details","755",""
+"passed","Trade Search Test.search the trade","398",""
+"passed","Testing the Bank Manager E2E.Logging to Bank Manager","6730",""
+"passed","Testing the Bank Manager E2E.Add Customer","14055",""
+"failed","Testing the Bank Manager E2E.Open Account","2015",""

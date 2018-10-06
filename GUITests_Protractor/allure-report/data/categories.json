@@ -1,0 +1,41 @@
+{
+  "uid" : "4b4757e66a1912dae1a509f688f20b0f",
+  "name" : "categories",
+  "children" : [ {
+    "name" : "Product defects",
+    "children" : [ {
+      "name" : "Expected true to be false.",
+      "children" : [ {
+        "name" : "Open Account",
+        "uid" : "f41edeed9137b89",
+        "parentUid" : "293aa7b91ef44dcd8cc1f32bddfcf900",
+        "status" : "failed",
+        "time" : {
+          "start" : 1524118252102,
+          "stop" : 1524118254117,
+          "duration" : 2015
+        },
+        "flaky" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "293aa7b91ef44dcd8cc1f32bddfcf900"
+    }, {
+      "name" : "Failed: script timeout: result was not received in 11 seconds\n                  (Session info: chrome=69.0.3497.100)\n                  (Driver info: chromedriver=2.42.591059 (a3d9684d10d61aa0c45f6723b327283be1ebaad8),platform=Mac OS X 10.13.6 x86_64)",
+      "children" : [ {
+        "name" : "login to trade search",
+        "uid" : "67c777d295ef4ef8",
+        "parentUid" : "3c016c786f1fded7eda392b0200f1c9c",
+        "status" : "failed",
+        "time" : {
+          "start" : 1538811493178,
+          "stop" : 1538811516107,
+          "duration" : 22929
+        },
+        "flaky" : true,
+        "parameters" : [ ]
+      } ],
+      "uid" : "3c016c786f1fded7eda392b0200f1c9c"
+    } ],
+    "uid" : "8fb3a91ba5aaf9de24cc8a92edc82b5d"
+  } ]
+}

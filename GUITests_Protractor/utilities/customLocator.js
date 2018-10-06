@@ -1,5 +1,6 @@
 "use strict";
-const protractor_1 = require('protractor');
+Object.defineProperty(exports, "__esModule", { value: true });
+const protractor_1 = require("protractor");
 class customLocators {
     addLocators() {
         protractor_1.by.addLocator("ngClick", (toState, parentelement) => {
