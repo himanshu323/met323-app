@@ -4,7 +4,7 @@ const q = 'test_q';
 
 let channel;
 
-amqp.connect(process.env.AMQP_URL, (err, conn) => {
+amqp.connect(process.env.AMQP, (err, conn) => {
   if (err) throw new Error(err);
 
   conn.createChannel((err, ch) => {

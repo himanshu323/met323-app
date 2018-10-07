@@ -8,9 +8,7 @@ const  {consumeQueue}=require("./consumer");
 
 let socketInstance;
 
-// let server=http.createServer((req,resp)=>{
-//     resp.end("This is ITTT")
-// })
+
 
 const normalizePort = val => {
     var port = parseInt(val, 10);
@@ -54,12 +52,11 @@ const normalizePort = val => {
     
   };
   
-  const port = normalizePort(process.env.PORT || "3001");
+  const port = normalizePort(process.env.PORT || "3003");
  
   app.use((req, resp, next) => {
 
     resp.setHeader("Access-Control-Allow-Origin", "*");
-
 
     resp.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept,Authorization");
 
@@ -68,7 +65,7 @@ const normalizePort = val => {
 })
 
 let server=http.createServer(app)
-// app.get("/",(req,resp,next)=>{
+
 
   console.log("onSockConn")
   let io= socketIO(server);
@@ -78,7 +75,7 @@ let server=http.createServer(app)
 
 io.on("connection",(socket)=>{
 
-  console.log("In");
+  console.log("In","Connneced");
   socketInstance=socket;
 
   socket.on('changeTrade', () =>{
@@ -90,27 +87,22 @@ io.on("connection",(socket)=>{
 })
 
 
-    //console.log(data);
-
-   // io.emit("newTrade")
+    
     
 
 })
 
 
-// socket.on('deleteTrade', () =>{
-                
-//   console.log("event occured");
 
-//   consumeQueue(io);
 
-//   //console.log(data);
 
-//  // io.emit("newTrade")
-  
+    
+    
 
 // })
-// })
+
+
+
 
 
 

@@ -4,7 +4,7 @@ const amqp = require('amqplib/callback_api');
 const q = 'test_q';
 let channel = null;
 
-amqp.connect("amqp://mtfrbwon:d6FXQeZoNyMMLBmW8Fg3YFbZzNQoDdoZ@woodpecker.rmq.cloudamqp.com/mtfrbwon", (err, conn) => {
+amqp.connect(process.env.AMQP, (err, conn) => {
   if (err) throw new Error(err);
 
   conn.createChannel((err, ch) => {
